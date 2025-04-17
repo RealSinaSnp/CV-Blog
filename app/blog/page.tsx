@@ -1,4 +1,5 @@
 import PostCard from "@/components/PostCard";
+import Starfield from '@/components/Starfield';
 
 const BlogPage = async () => {
   let posts = [];
@@ -12,13 +13,16 @@ const BlogPage = async () => {
   }
 
   return (
-    <main className="px-6 md:px-20 py-10 bg-gray-50 dark:bg-black min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-10 text-indigo-600 dark:text-indigo-400">
-          My Brain Dumps
-        </h1>
+    <main className="px-6 md:px-20 py-10 bg-black min-h-screen">
+      <div className="max-w-4xl mx-auto ">
+      <Starfield
+        starCount={1000}
+        starColor={[255, 255, 255]}
+        speedFactor={0.03}
+        backgroundColor="black"
+      />
         {posts.length === 0 ? (
-          <p className="text-gray-500 dark:text-gray-400">No blog posts yet. Get to writing, genius.</p>
+          <p className="text-gray-500 dark:text-gray-400">No blog posts yet.</p>
         ) : (
           <div className="grid gap-6">
             {posts.map((post) => (

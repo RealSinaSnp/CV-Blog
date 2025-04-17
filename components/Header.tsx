@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, FileUser  } from "lucide-react";
+import { FileUser } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 
 export default function Header() {
@@ -21,11 +23,14 @@ export default function Header() {
 
         {/* Right - Social Icons */}
         <div className="flex gap-3 text-gray-600 dark:text-gray-300">
-          <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition">
-            <Github size={20} />
+          <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+            <FontAwesomeIcon icon={faGithub} size="lg" />
           </a>
-          <a href="https://www.linkedin.com/in/realsinasnp/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition">
-            <Linkedin size={20} />
+          <a href="https://www.linkedin.com/in/realsinasnp/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+            <FontAwesomeIcon icon={faLinkedin} size="lg"/>
+          </a>
+          <a href="https://x.com/RealSinaSNP" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+            <FontAwesomeIcon icon={faXTwitter} size="lg"/>
           </a>
           <a href="https://sinasnp.com/" className="text-gray-600 dark:text-gray-300 hover:text-teal-500 transition">
             <FileUser size={20} />
