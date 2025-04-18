@@ -10,7 +10,7 @@ export default function CVPage() {
 
 
   // keep dark/light mode on tooggle
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === "dark"; 
 
   // for InfoCard
