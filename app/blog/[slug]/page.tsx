@@ -1,13 +1,30 @@
+// app/blog/[slug]/page.tsx
+
+import { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
-import { connectToDB } from '@/lib/mongodb'; // Adjust path if needed
+import { connectToDB } from "@/lib/mongodb";
 import Post from "@/models/post.model";
-import remarkGfm from "remark-gfm"; // GitHub flavored markdown (tables, strikethrough, etc.)
-import rehypeHighlight from "rehype-highlight"; // Syntax highlighting for code blocks
-import "highlight.js/styles/github-dark.css"; // You can pick another style too
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github-dark.css";
 
+export const dynamic = "force-dynamic"; // 👈 Fixes weird Next.js param warnings
 
-export default async function PostPage({ params }) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: `Post - ${params.slug}`,
+  };
+}
+
+export default async function PostPage({ params }: Props) {
   await connectToDB();
+
   const post = await Post.findOne({ slug: params.slug });
 
   if (!post) {

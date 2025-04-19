@@ -4,11 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function NewPostForm() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [content, setContent] = useState<string>("");
   const router = useRouter();
 
-  const createPost = async (e: any) => {
+  const createPost = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const slug = title.toLowerCase().replace(/\s+/g, "-");
     const res = await fetch("/api/posts", {
