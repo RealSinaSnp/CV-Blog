@@ -4,9 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useTheme } from "next-themes";
 
-export default function HeaderDesktop() {
+
+
+type HeaderProps = {
+  isDark: boolean;
+};
+
+export default function HeaderDesktop({ isDark }: HeaderProps) {
   const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
+  isDark = theme === "dark";
 
   const toggleDark = () => {
     setTheme(isDark ? "light" : "dark");
@@ -17,9 +23,9 @@ export default function HeaderDesktop() {
       <div className="flex items-center gap-4">
         <img src="/img/profile.jpg" alt="Profile" className={`"w-16 h-16 rounded-full border-2  ${isDark ? "border-white" : "border-black"} transition`}/>
         <div>
-          <h1 className="text-2xl font-bold  transition">Sina Sasanpour</h1>
-          <p className="text-sm transition">Istanbul | Junior Developer</p>
-          <div className="flex gap-3 mt-2 transition" >
+          <h1 className="text-2xl font-bold transition">Sina Sasanpour</h1>
+          <p className="text-sm">Istanbul | Junior Developer</p>
+          <div className="flex gap-3 mt-2" >
             <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faGithub} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
             </a>

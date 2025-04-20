@@ -1,23 +1,21 @@
-# Use an official Node.js image as the base image
-FROM node:18-alpine
+# Build Stage
+FROM node:18 as build
 
-# Set working directory
 WORKDIR /app
-
-# Copy package files separately to optimize cache
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the project
 COPY . .
 
-# Build the Next.js app
-RUN npm run build
+RUN npm install && npm run build
 
-# Expose port that Next.js runs on
+# Production Stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy the built frontend files into the Nginx server's html directory
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Expose port 80 and 443
 EXPOSE 3000
 
-# Run the Next.js app in production mode
+# Run Nginx in the foreground
 CMD ["npm", "start"]

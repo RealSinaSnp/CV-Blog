@@ -1,7 +1,17 @@
 import { CheckCircle } from "lucide-react";
 import { useTheme } from "next-themes";
 
-export default function InfoCard({ title, color, items, showCheckmarks = false }) {
+
+type InfoCardProps = {
+  title: string;
+  color: string;
+  items: {
+    label: string;
+    level: number;
+  }[];
+  showCheckmarks?: boolean;
+};
+export default function InfoCard({ title, color, items, showCheckmarks = false }: InfoCardProps) {
   const { theme } = useTheme(); // Get current theme
 
   // Define dynamic background color based on the theme
@@ -11,20 +21,20 @@ export default function InfoCard({ title, color, items, showCheckmarks = false }
 
   return (
     <div className={`flex-1 p-4 rounded-2xl shadow ${bgCard}`}>
-      <h2 className={`text-xl font-bold mb-4 ${color}`}>{title}</h2>
+      <h2 className={`text-xl font-bold mb-4 ${color} transition`}>{title}</h2>
       <div className="space-y-4">
         {items.map(item => (
           <div key={item.label}>
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium">{item.label}</p>
+              <p className="text-sm font-medium transition">{item.label}</p>
               {showCheckmarks && (
-                <CheckCircle className="text-green-600 dark:text-green-400 w-4 h-4" />
+                <CheckCircle className="text-green-600 dark:text-green-400 w-4 h-4 transition" />
               )}
             </div>
             {!showCheckmarks && (
               <div className={`mt-1 w-full h-2 ${bgBar} rounded-full`}>
                 <div
-                  className={`h-full ${progressBar} rounded-full`}
+                  className={`h-full ${progressBar} rounded-full transition`}
                   style={{ width: `${item.level}%` }}
                 ></div>
               </div>

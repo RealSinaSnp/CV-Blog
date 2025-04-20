@@ -38,11 +38,11 @@ export default function CVPage() {
 
   
   const interests = [
-    { label: "Building side projects"},
-    { label: "Automating boring tasks" },
-    { label: "Tech blogging" },
-    { label: "UI/UX design exploration" },
-    { label: "Following tech news and trends" },
+    { label: "Building side projects", level: 75},
+    { label: "Automating boring tasks", level: 75 },
+    { label: "Tech blogging", level: 75 },
+    { label: "UI/UX design exploration", level: 75 },
+    { label: "Following tech news and trends", level: 75 },
   ];
   
 

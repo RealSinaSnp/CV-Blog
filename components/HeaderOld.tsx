@@ -1,3 +1,5 @@
+{/*
+
 import { Moon, Sun } from "lucide-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -39,3 +41,5 @@ export default function Header({ dark, toggleDark }) {
     </header>
   );
 }
+
+*/}

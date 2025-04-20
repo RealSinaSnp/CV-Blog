@@ -1,12 +1,16 @@
 // components/HeaderMobile.tsx
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Newspaper } from "lucide-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useTheme } from "next-themes";
 
-export default function HeaderMobile() {
+type HeaderProps = {
+  isDark: boolean;
+};
+
+export default function HeaderMobile({ isDark }: HeaderProps) {
   const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
+  isDark = theme === "dark";
 
   const toggleDark = () => {
     setTheme(isDark ? "light" : "dark");
@@ -14,22 +18,25 @@ export default function HeaderMobile() {
 
   return (
     <header className={`p-6 flex flex-col items-center text-center gap-4 bg-teal-500 ${isDark ? 'dark:bg-[#17313c]' : ''}`}>
-      <img src="/img/profile.jpg" alt="Profile" className="w-20 h-20 rounded-full border-2 border-white dark:border-black" />
-      <h1 className="text-2xl font-bold">Sina Sasanpour</h1>
+      <img src="/img/profile.jpg" alt="Profile" className={`"w-20 h-20 rounded-full border-2  ${isDark ? "border-white" : "border-black"} transition" `}/>
+      <h1 className="text-2xl font-bold transition">Sina Sasanpour</h1>
       <p className="text-sm">Istanbul | Junior Developer</p>
       <div className="flex gap-4">
         <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faGithub} size="lg" color={isDark ? "#98FF98" : "#17313c"} />
+          <FontAwesomeIcon icon={faGithub} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
         </a>
         <a href="https://www.linkedin.com/in/realsinasnp/" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} size="lg" color={isDark ? "#98FF98" : "#17313c"} />
+          <FontAwesomeIcon icon={faLinkedin} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
         </a>
         <a href="https://x.com/RealSinaSNP" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faXTwitter} size="lg" color={isDark ? "#98FF98" : "#17313c"} />
+          <FontAwesomeIcon icon={faXTwitter} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
+        </a>
+        <a href="/blog" target="_blank" rel="noopener noreferrer">
+          <Newspaper className={`${isDark ? "text-teal-300 hover:text-white" : "text-black hover:text-black"} transition`} />
         </a>
       </div>
       <div className="flex items-center gap-4">
-        <a href="/docs/CV_EN_dark.pdf" download className="px-4 py-2 text-white font-semibold rounded-full bg-[#17313c] dark:bg-teal-500 hover:bg-black hover:dark:bg-teal-600">
+        <a href="/docs/CV_EN_dark.pdf" download className={`"px-4 py-2 text-white font-semibold rounded-full ${isDark ? "bg-teal-500 hover:bg-teal-400" : "bg-[#17313c] hover:bg-black"} transition`}>
           Download CV (PDF)
         </a>
 

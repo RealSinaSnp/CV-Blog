@@ -28,7 +28,7 @@ const BlogPage = async () => {
           <p className="text-gray-500 dark:text-gray-400">No blog posts yet.</p>
         ) : (
           <div className="grid gap-6">
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <PostCard key={post._id} post={post} />
             ))}
           </div>

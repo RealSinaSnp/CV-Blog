@@ -1,31 +1,21 @@
-// app/blog/[slug]/page.tsx
-
-import { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
-import { connectToDB } from "@/lib/mongodb";
+import { connectToDB } from '@/lib/mongodb'; // Adjust path if needed
 import Post from "@/models/post.model";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/github-dark.css";
+import remarkGfm from "remark-gfm"; // GitHub flavored markdown (tables, strikethrough, etc.)
+import rehypeHighlight from "rehype-highlight"; // Syntax highlighting for code blocks
+import "highlight.js/styles/github-dark.css"; // You can pick another style too
 
-export const dynamic = "force-dynamic"; // 👈 Fixes weird Next.js param warnings
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>; // yes, a Promise
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return {
-    title: `Post - ${params.slug}`,
-  };
-}
+
+
 
 export default async function PostPage({ params }: Props) {
-  await connectToDB();
-
-  const post = await Post.findOne({ slug: params.slug });
+  const { slug } = await params;
+  const post = await Post.findOne({ slug });
 
   if (!post) {
     return <div className="p-4 text-red-500">Post not found</div>;
@@ -35,10 +25,7 @@ export default async function PostPage({ params }: Props) {
     <div className="prose dark:prose-invert max-w-none p-8">
       <h1>{post.title}</h1>
       <p className="text-gray-400 text-sm">{new Date(post.createdAt).toLocaleString()}</p>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight]}
-      >
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
         {post.content}
       </ReactMarkdown>
     </div>
