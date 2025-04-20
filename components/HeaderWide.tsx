@@ -19,7 +19,7 @@ export default function HeaderDesktop({ isDark }: HeaderProps) {
   };
 
   return (
-    <header className={`p-6 flex justify-between items-center bg-teal-500 ${isDark ? 'dark:bg-[#17313c]' : ''}`}>
+    <header className={`p-6 flex justify-between gap-4 items-center bg-teal-500 ${isDark ? 'dark:bg-[#17313c]' : ''}`}>
       <div className="flex items-center gap-4">
         <img src="/img/profile.jpg" alt="Profile" className={`"w-16 h-16 rounded-full border-2  ${isDark ? "border-white" : "border-black"} transition`}/>
         <div>
@@ -45,6 +45,8 @@ export default function HeaderDesktop({ isDark }: HeaderProps) {
         <a href="/docs/CV_EN_dark.pdf" download className={`px-4 py-2 text-white font-semibold rounded-full ${isDark ? "bg-teal-500 hover:bg-teal-400" : "bg-[#17313c] hover:bg-black"} transition`}>
           Download CV (PDF)
         </a>
+
+        {/* Dark Mode Toggle Button */}
         <button onClick={toggleDark} className="text-white">
           {isDark ? <Sun /> : <Moon color="#17313c" />}
         </button>
