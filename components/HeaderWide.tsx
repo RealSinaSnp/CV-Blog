@@ -22,6 +22,11 @@ export default function HeaderMobile() {
           <h1 className="text-2xl font-bold transition">Sina Sasanpour</h1>
           <p className="text-sm">Istanbul | Junior Developer</p>
           <div className="flex gap-3 mt-2" >
+            <a href="/blog" target="_blank" rel="noopener noreferrer" 
+            className={`flex items-center mt-[-4] gap-2 px-2 py-1 border-1 ${isDark ? " border-teal-300 text-teal-100 hover:text-white hover:bg-teal-800" : "border-[#17313c] text-[#17313c] hover:text-black hover:bg-teal-200"} rounded-full transition`}>
+              <Newspaper className="w-5 h-5" />
+              <span className="font-medium">Blog</span>
+            </a>
             <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faGithub} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
             </a>
@@ -30,9 +35,6 @@ export default function HeaderMobile() {
             </a>
             <a href="https://x.com/RealSinaSNP" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faXTwitter} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
-            </a>
-            <a href="/blog" target="_blank" rel="noopener noreferrer">
-              <Newspaper className={`${isDark ? "text-teal-300 hover:text-white" : "text-black hover:text-black"} transition`} />
             </a>
           </div>
         </div>
