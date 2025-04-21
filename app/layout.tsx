@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "SINA SNP",
-  description: "A next app",
+  description: "A Next.js app",
 };
 
 export default function RootLayout({

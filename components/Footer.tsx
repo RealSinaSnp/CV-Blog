@@ -19,7 +19,7 @@ export default function Footer() {
         <a href="https://sinasnp.com" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition">
             sinasnp.com
         </a> 
-        . Built with pain, coffee & Next.js.
+         Built with pain, coffee & Next.js.
       </footer>
     );
 }
