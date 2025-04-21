@@ -17,13 +17,13 @@ export default function HeaderMobile({ isDark }: HeaderProps) {
   };
 
   return (
-    <header className={`p-6 flex flex-col items-center text-center gap-4 bg-teal-500 ${isDark ? 'dark:bg-[#17313c]' : ''}`}>
-      <img src="/img/profile.jpg" alt="Profile" className={`"w-20 h-20 rounded-full border-2  ${isDark ? "border-white" : "border-black"} transition" `}/>
+    <header className={`p-7 flex flex-col items-center text-center gap-4 bg-teal-500 ${isDark ? 'dark:bg-[#17313c]' : ''}`}>
+      <img src="/img/profile.jpg" alt="Profile" className={`"w-25 h-25 rounded-full border-2  ${isDark ? "border-white" : "border-black"} transition" `}/>
       <h1 className="text-2xl font-bold transition">Sina Sasanpour</h1>
       <p className="text-sm">Istanbul | Junior Developer</p>
       <div className="flex gap-4">
         <a href="/blog" target="_blank" rel="noopener noreferrer" 
-        className={`flex items-center mt-[-4] gap-2 px-2 py-1 border-1 ${isDark ? " border-teal-300 text-teal-100 hover:text-white hover:bg-teal-800" : "border-[#17313c] text-[#17313c] hover:text-black hover:bg-teal-200"} rounded-full transition`}>
+        className={`flex items-center mt-[-6] gap-2 px-2 py-1 border-2 ${isDark ? " border-teal-300 text-teal-100 hover:text-white hover:bg-teal-800" : "border-[#17313c] text-[#17313c] hover:text-black hover:bg-teal-200"} rounded-full transition`}>
           <Newspaper className="w-5 h-5" />
           <span className="font-medium">Blog</span>
         </a>
@@ -38,7 +38,7 @@ export default function HeaderMobile({ isDark }: HeaderProps) {
         </a>
       </div>
       <div className="flex items-center gap-4">
-        <a href="/docs/CV_EN_dark.pdf" download className={`"px-4 py-2 text-white font-semibold rounded-full ${isDark ? "bg-teal-500 hover:bg-teal-400" : "bg-[#17313c] hover:bg-black"} transition`}>
+        <a href="/docs/CV_EN_dark.pdf" download className={`px-4 py-2 text-white font-semibold rounded-full ${isDark ? "bg-teal-500 hover:bg-teal-400" : "bg-[#17313c] hover:bg-black"} transition`}>
           Download CV (PDF)
         </a>
 
