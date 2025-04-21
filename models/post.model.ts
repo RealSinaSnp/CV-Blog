@@ -1,12 +1,14 @@
 import { Schema, model, models } from "mongoose";
 
-const PostSchema = new Schema({
-  title: String,
-  content: String,
-  slug: { type: String, unique: true },
-  createdAt: { 
-    type: Date, default: Date.now 
+const PostSchema = new Schema(
+  {
+    title: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
+    content: { type: String, required: true },
+    imageUrl: { type: String, required: false },
   },
-});
+  { timestamps: true }
+);
 
-export default models.Post || model("Post", PostSchema);
+const Post = models.Post || model("Post", PostSchema);
+export default Post;

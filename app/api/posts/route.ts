@@ -27,8 +27,13 @@ export async function POST(req: Request) {
     if (existingPost) {
       return NextResponse.json({ error: "Post with this slug already exists" }, { status: 409 });
     }
-
-    const newPost = await Post.create(body);
+    console.log("Creating post with:", body);
+    const newPost = await Post.create({
+      title: body.title,
+      content: body.content,
+      slug: body.slug,
+      imageUrl: body.imageUrl || "",  // Explicitly save it
+    });
     return NextResponse.json(newPost, { status: 201 });
   } catch (error) {
     console.error("POST /api/posts failed:", error);

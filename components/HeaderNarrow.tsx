@@ -4,13 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useTheme } from "next-themes";
 
-type HeaderProps = {
-  isDark: boolean;
-};
-
-export default function HeaderMobile({ isDark }: HeaderProps) {
+export default function HeaderMobile() {
   const { theme, setTheme } = useTheme();
-  isDark = theme === "dark";
+  const isDark = theme === "dark";
 
   const toggleDark = () => {
     setTheme(isDark ? "light" : "dark");

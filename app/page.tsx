@@ -1,6 +1,6 @@
 "use client";
 
-//import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes"; 
 import Header from "@/components/Header-CV";
 import InfoCard from "@/components/InfoCard";
@@ -8,6 +8,11 @@ import InfoCard from "@/components/InfoCard";
 
 export default function CVPage() {
 
+
+  const [year, setYear] = useState<number | null>(null);
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   // keep dark/light mode on tooggle
   const { theme } = useTheme();
@@ -85,10 +90,11 @@ export default function CVPage() {
 
 
 
-
-      <footer className="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
-        © {new Date().getFullYear()} Sina. All rights reserved.
-      </footer>
+      {year && (
+        <footer className="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
+          © {year} Sina. All rights reserved.
+        </footer>
+      )} 
     </div>
     </div>
   );

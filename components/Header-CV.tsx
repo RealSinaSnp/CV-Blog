@@ -1,17 +1,16 @@
 "use client";
+import { useState, useEffect } from "react";
 import useIsMobile from "./CheckNarrow";
 import HeaderDesktop from "./HeaderWide";
 import HeaderMobile from "./HeaderNarrow";
-import { useTheme } from "next-themes";
 
 export default function Header() {
+  const [mounted, setMounted] = useState(false);
   const isMobile = useIsMobile(690);
-  const { theme } = useTheme();
-  const isDark = theme === "dark"; // Determine if the current theme is dark
 
-  return isMobile ? (
-    <HeaderMobile isDark={isDark} />
-  ) : (
-    <HeaderDesktop isDark={isDark} />
-  );
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
 }

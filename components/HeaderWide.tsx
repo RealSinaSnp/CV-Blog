@@ -6,13 +6,9 @@ import { useTheme } from "next-themes";
 
 
 
-type HeaderProps = {
-  isDark: boolean;
-};
-
-export default function HeaderDesktop({ isDark }: HeaderProps) {
+export default function HeaderMobile() {
   const { theme, setTheme } = useTheme();
-  isDark = theme === "dark";
+  const isDark = theme === "dark";
 
   const toggleDark = () => {
     setTheme(isDark ? "light" : "dark");
