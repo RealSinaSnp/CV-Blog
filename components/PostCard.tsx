@@ -3,6 +3,15 @@ import { useState } from "react";
 
 
 
+type Post = {
+  title: string;
+  slug: string;
+  createdAt: string | Date;
+  imageUrl?: string;
+  excerpt?: string;
+  tag?: string;
+};
+
 export default function PostCard({ post }: { post: Post }) {
   const [imgError, setImgError] = useState(false);
   const formattedDate = new Date(post.createdAt).toLocaleDateString(undefined, {
