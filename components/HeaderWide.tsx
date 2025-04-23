@@ -1,58 +1,92 @@
-// components/HeaderDesktop.tsx
 import { Moon, Sun, Newspaper } from "lucide-react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useTheme } from "next-themes";
-
-
+import { useEffect, useState } from "react";
+import HeaderSticky from "./HeaderSticky";
 
 type HeaderProps = {
   isDark: boolean;
 };
 
-export default function HeaderDesktop({ isDark }: HeaderProps) {
+export default function HeaderMobile({ isDark }: HeaderProps) {
   const { theme, setTheme } = useTheme();
   isDark = theme === "dark";
 
   const toggleDark = () => {
     setTheme(isDark ? "light" : "dark");
   };
+  const [showSticky, setShowSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      const triggerHeight = window.innerHeight * 0.95; // Adjust this if needed
+      setShowSticky(offset > triggerHeight);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className={`p-6 flex justify-between gap-4 items-center bg-teal-500 ${isDark ? 'dark:bg-[#17313c]' : ''}`}>
-      <div className="flex items-center gap-4">
-        <img src="/img/profile.jpg" alt="Profile" className={`"w-25 h-25 rounded-full border-2  ${isDark ? "border-white" : "border-black"} transition`}/>
-        <div>
-          <h1 className="text-2xl font-bold transition">Sina Sasanpour</h1>
-          <p className="text-sm">Istanbul | Junior Developer</p>
-          <div className="flex gap-3 mt-2" >
-            <a href="/blog" target="_blank" rel="noopener noreferrer" 
-            className={`flex items-center mt-[-6] gap-2 px-2 py-1 border-2 ${isDark ? " border-teal-300 text-teal-100 hover:text-white hover:bg-teal-800" : "border-[#17313c] text-[#17313c] hover:text-black hover:bg-teal-200"} rounded-full transition`}>
-              <Newspaper className="w-5 h-5" />
-              <span className="font-medium">Blog</span>
-            </a>
-            <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faGithub} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
-            </a>
-            <a href="https://www.linkedin.com/in/realsinasnp/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
-            </a>
-            <a href="https://x.com/RealSinaSNP" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faXTwitter} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
-            </a>
-          </div>
-        </div>
+    <>
+    <header className={`h-screen w-full flex flex-col justify-center items-center text-center gap-6 bg-animated-gradient px-6 ${ isDark ? "bg-animated-gradient-dark" : ""}`}>
+      <img src="/img/profile.jpg" alt="Profile" className={`w-32 h-32 md:w-40 md:h-40 rounded-full border-4 ${ isDark ? "border-white" : "border-black" } transition`} />
+      <h1 className="text-4xl md:text-5xl font-bold">Sina Sasanpour</h1>
+      <p className="text-lg">Istanbul | Junior Developer</p>
+
+      <div className="flex gap-4 mt-2">
+        <a href="/blog" target="_blank" rel="noopener noreferrer" 
+          className={`flex items-center mt-[-6] gap-2 px-2 py-1 border-2 ${isDark ? " border-teal-300 text-teal-100 hover:text-white hover:bg-teal-800" : "border-[#17313c] text-[#17313c] hover:text-black hover:bg-teal-200"} rounded-full transition`}>
+          <Newspaper className="w-5 h-5" />
+          <span className="font-medium">Blog</span>
+        </a>
+        <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faGithub} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
+        </a>
+        <a href="https://www.linkedin.com/in/realsinasnp/" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faLinkedin} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
+        </a>
+        <a href="https://x.com/RealSinaSNP" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faXTwitter} size="lg" className={`${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`} />
+        </a>
       </div>
-      <div className="flex items-center gap-4">                                                             
-        <a href="/docs/CV_EN_dark.pdf" download className={`px-4 py-2 text-white font-semibold rounded-full ${isDark ? "bg-teal-500 hover:bg-teal-400" : "bg-[#17313c] hover:bg-black"} transition`}>
+
+      <div className="flex items-center gap-4 mt-4">
+        <a href="/docs/CV_EN_dark.pdf" download className={`px-5 py-2 text-white font-semibold rounded-full bg-black/50 hover:bg-black ${isDark ? "bg-teal-500 hover:bg-teal-400" : "bg-[#17313c] hover:bg-black"} transition"`}>
           Download CV (PDF)
         </a>
-
-        {/* Dark Mode Toggle Button */}
         <button onClick={toggleDark} className="text-white">
-          {isDark ? <Sun /> : <Moon color="#17313c" />}
+          {isDark ? <Sun /> : <Moon color="#000" />}
         </button>
       </div>
+      <p className="max-w-2xl text-center text-lg leading-relaxed transition">
+          I focus on clean code
+          {theme !== "light" && ", and dark mode (because I respect your eyes)"}
+          {theme !== "dark" && ", fast loading , adaptability"}
+          .
+      </p>
+      {/* Scroll Down Arrow */}
+      <div className="absolute bottom-6 animate-bounce">
+        <a href="#next-section" className="text-white hover:text-teal-200 transition">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 mx-auto"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        
+      </div>
+      {/* Sticky header that appears after scroll */}
+    {showSticky && <HeaderSticky />}
+    
     </header>
+    </>
+    
   );
 }

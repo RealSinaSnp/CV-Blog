@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes"; 
-import Header from "@/components/Header-CV";
+import HeaderCV from "@/components/Header-CV";
+import AboutMe from "@/components/AboutMe";
 import InfoCard from "@/components/InfoCard";
+import Projects from "@/components/Projects";
 
 
 export default function CVPage() {
@@ -53,10 +55,10 @@ export default function CVPage() {
 
   return (
     <div className={`${isDark ? "dark bg-[#0c0c0c] text-white" : "bg-white text-black"}`}>
-      <Header />
-      <div className="max-w-7xl mx-auto">
+      <HeaderCV />
       
       
+      <div className="pt-20 max-w-7xl mx-auto">
 
       <section className="p-6" id="about">
         <h2 className="text-xl font-bold mb-2 text-indigo-600 dark:text-green-500">About Me</h2>
@@ -64,7 +66,6 @@ export default function CVPage() {
         Seeing how automations designed by engineers have simplified human life inspires me to tackle
         complex problems and create innovative solutions. I am eager to further develop my technical skills to
         contribute to meaningful projects alongside other ambitious developers.
-
         </p>
       </section>
 
@@ -88,15 +89,18 @@ export default function CVPage() {
         
       </section>
 
+      {/* <Projects /> */}
+
 
 
       {year && (
-        <footer className="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
+        <footer className="pt-20 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
           © {year} Sina. All rights reserved.
         </footer>
       )} 
     </div>
     </div>
+    
   );
 }
 
