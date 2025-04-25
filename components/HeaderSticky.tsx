@@ -19,7 +19,7 @@ export default function HeaderSticky() {
           <span className={`font-semibold text-lg ${isDark ? "text-white" : "text-[#000]"} transition`}>Sina Sasanpour</span>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <a href="https://github.com/RealSinaSnp" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGithub} className={`flex items-center ${isDark ? "text-teal-100 hover:text-white" : "text-[#17313c] hover:text-black"} transition`}/>
           </a>
