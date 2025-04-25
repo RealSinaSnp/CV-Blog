@@ -101,12 +101,12 @@ export default function ProjectsPage() {
 
           {/* Project Content */}
           <div className="max-w-sm">
-            <Link href="http://getsina.ir" target="_blank">
+            <Link href="/sinaIR/index.html" target="_blank">
               <div className="absolute inset-0" />
               <h3 className="text-xl">First Portfolio</h3>
             </Link>
             <p className="mt-4 text-secondary">
-              My first portfolio was built with plain HTML/CSS on my custom domain 
+              My first portfolio was built with plain HTML/CSS in 2019 on my custom domain 
               that I no longer have access to it (access restricted for overseas). 
               But you can see it by clicking on this PostCard.
             </p>
