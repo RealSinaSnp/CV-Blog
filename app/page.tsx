@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes"; 
 import HeaderCV from "@/components/Header-CV";
-import AboutMe from "@/components/AboutMe";
 import InfoCard from "@/components/InfoCard";
 import Projects from "@/components/Projects";
 
@@ -89,12 +88,12 @@ export default function CVPage() {
         
       </section>
 
-      {/* <Projects /> */}
+      <Projects />
 
 
 
       {year && (
-        <footer className="pt-20 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
+        <footer className="pt-5 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
           © {year} Sina. All rights reserved.
         </footer>
       )} 

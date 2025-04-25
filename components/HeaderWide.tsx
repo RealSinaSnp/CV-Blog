@@ -63,12 +63,12 @@ export default function HeaderMobile({ isDark }: HeaderProps) {
       <p className="max-w-2xl text-center text-lg leading-relaxed transition">
           I focus on clean code
           {theme !== "light" && ", and dark mode (because I respect your eyes)"}
-          {theme !== "dark" && ", fast loading , adaptability"}
+          {theme !== "dark" && ", fast loading and adaptability"}
           .
       </p>
       {/* Scroll Down Arrow */}
       <div className="absolute bottom-6 animate-bounce">
-        <a href="#next-section" className="text-white hover:text-teal-200 transition">
+        <a  className="text-white hover:text-teal-200 transition">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 mx-auto"
