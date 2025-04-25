@@ -15,12 +15,12 @@ export default function InfoCard({ title, color, items, showCheckmarks = false }
   const { theme } = useTheme(); // Get current theme
 
   // Define dynamic background color based on the theme
-  const bgCard = theme === "dark" ? "bg-[#111]" : "bg-gray-100";
+  const bgCard = theme === "dark" ? "bg-[#111] md:bg-[#0c0c0c] hover:md:bg-[#111]" : "bg-gray-100 md:bg-white hover:md:bg-gray-100";
   const bgBar = theme === "dark" ? "bg-[#141414]" : "bg-gray-200";
   const progressBar = theme === "dark" ? "bg-green-700" : "bg-indigo-500";
 
   return (
-    <div className={`flex-1 p-4 rounded-2xl shadow ${bgCard}`}>
+    <div className={`flex-1 p-4  ${bgCard}`}>
       <h2 className={`text-xl font-bold mb-4 ${color} transition`}>{title}</h2>
       <div className="space-y-4">
         {items.map(item => (

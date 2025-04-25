@@ -56,11 +56,17 @@ export default function CVPage() {
     <div className={`${isDark ? "dark bg-[#0c0c0c] text-white" : "bg-white text-black"}`}>
       <HeaderCV />
       
-      
+
       <div className="pt-20 max-w-7xl mx-auto">
 
       <section className="p-6" id="about">
-        <h2 className="text-xl font-bold mb-2 text-indigo-600 dark:text-green-500">About Me</h2>
+        <div className="flex flex-col pb-7 gap-6 lg:flex-row lg:items-start lg:justify-between max-w-xl space-y-12">
+          <h2 className="text-balance text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <span>[</span>
+            <span>About Me</span>
+            <span>]</span>
+          </h2>
+      </div>
         <p className="text-base">
         Seeing how automations designed by engineers have simplified human life inspires me to tackle
         complex problems and create innovative solutions. I am eager to further develop my technical skills to

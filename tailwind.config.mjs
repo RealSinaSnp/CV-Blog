@@ -22,6 +22,9 @@ const config = {
         sans: ["var(--font-geist-sans)", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
       },
+      boxShadow: {
+        'glow-sides': 'inset 8px 0px 16px rgba(0,0,0,0.2), inset -8px 0px 16px rgba(0,0,0,0.2)',
+      }
     },
   },
   plugins: [typography],
