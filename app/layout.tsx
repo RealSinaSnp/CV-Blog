@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 
+
 <link rel="icon" href="/title.png" sizes="any" />
 
 const geistSans = Geist({

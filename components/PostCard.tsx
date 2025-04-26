@@ -20,10 +20,10 @@ export default function PostCard({ post }: { post: Post }) {
     day: "numeric",
   });
 
-  const imageSrc = !imgError && post.imageUrl ? post.imageUrl : "/img/image2.jpg";
+  const imageSrc = !imgError && post.imageUrl ? post.imageUrl : "/img/placeholder1.png";
 
   return (
-    <div className="group relative flex flex-col md:flex-row gap-5 border-b border-border py-10 last-of-type:border-b-0 first-of-type:border-t">
+    <div className="group relative flex flex-col md:flex-row gap-5 border-b-2 border-[rgba(255,255,255,0.1)] py-10 last-of-type:border-b-0 first-of-type:border-t-0">
       <div className="flex flex-col gap-6 md:gap-12 xl:flex-row flex-1 order-2 md:order-1">
         <div>
           <p className="text-xs text-muted-foreground font-mono">{formattedDate}</p>
@@ -61,7 +61,7 @@ export default function PostCard({ post }: { post: Post }) {
 
       {/* Image section */}
       <div className="flex-1 xl:max-w-[500px] order-1 md:order-2">
-        <div className="w-full h-64 rounded-xl overflow-hidden bg-gray-900">
+        <div className="w-full h-64  overflow-hidden bg-[#0c0c0c]">
           <img
             src={imageSrc}
             onError={() => setImgError(true)}
