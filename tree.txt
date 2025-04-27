@@ -4,44 +4,77 @@ C:.
 +---.next
 +---app
 ¦   +---api
+¦   ¦   +---auth
+¦   ¦   ¦   +---[...nextauth]
+¦   ¦   ¦   ¦   +---route.ts
 ¦   ¦   +---posts
 ¦   ¦   ¦   +---route.ts
 ¦   +---blog
-¦       +---new
+¦   ¦   +---new
 ¦   ¦   ¦   +---page.tsx
-¦       +---[slug]
+¦   ¦   +---[slug]
+¦   ¦   ¦   +---generateStaticParams.tsx
 ¦   ¦   ¦   +---page.tsx
 ¦   ¦   +---page.tsx
 ¦   +---favicon.ico
 ¦   +---globals.css
 ¦   +---layout.tsx
+¦   +---not-found.tsx
 ¦   +---page.tsx
+¦   +---title.png
+¦
 +---components
-¦   +---PostCard.tsx
+¦   +---CheckNarrow.tsx
+¦   +---Footer.tsx
+¦   +---Header.tsx
+¦   +---Header-CV.tsx
+¦   +---HeaderNarrow.tsx
+¦   +---HeaderOld.tsx
+¦   +---HeaderSticky.tsx
+¦   +---HeaderWide.tsx
+¦   +---InfoCard.tsx
+¦   +---NewPostForm.tsx
+¦   +---PostCard.tsx.tsx
+¦   +---Projects.tsx
+¦   +---Starfield.tsx
+¦   +---ThemeProvider.tsx
+¦
 +---lib
+¦   +---authOptions.ts
 ¦   +---mongodb.ts
+¦   +---types.ts
+¦
 +---models
 ¦   +---post.model.ts
+¦
 +---node_modules
 +---public
+¦   +---docs/
+¦   +---img/
 ¦   +---file.svg
 ¦   +---globe.svg
 ¦   +---next.svg
 ¦   +---vercel.svg
 ¦   +---window.svg
+¦
 +---styles
 ¦   +---globals.css
+¦
 +---utils
 ¦   +---mongodb.ts
+¦
++---.dockerignore
 +---.env.local
 +---.gitignore
++---Dockerfile
 +---eslint.config.mjs
-+---next.config.ts
++---makefile
 +---next-env.d.ts
-+---package.json
++---next.config.ts
++---nginx.conf
 +---package-lock.json
++---package.json
 +---postcss.config.mjs
 +---README.md
++---tailwind.config.mjs
 +---tsconfig.json
-+---
-+---

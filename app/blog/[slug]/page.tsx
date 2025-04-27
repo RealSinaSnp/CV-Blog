@@ -1,20 +1,16 @@
-import ReactMarkdown from "react-markdown";
-import { connectToDB } from '@/lib/mongodb'; // Adjust path if needed
-import Post from "@/models/post.model";
-import remarkGfm from "remark-gfm"; // GitHub flavored markdown (tables, strikethrough, etc.)
-import rehypeHighlight from "rehype-highlight"; // Syntax highlighting for code blocks
-import "highlight.js/styles/github-dark.css"; // You can pick another style too
+// /app/blog/[slug]/page.tsx
 
+import { connectToDB } from '@/lib/mongodb';
+import Post from "@/models/post.model";
+import MarkdownViewer from "./MarkdownViewer";
 
 type Props = {
-  params: Promise<{ slug: string }>; // yes, a Promise
+  params: { slug: string };
 };
 
-
-
-
 export default async function PostPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = params;
+  await connectToDB();
   const post = await Post.findOne({ slug });
 
   if (!post) {
@@ -22,12 +18,14 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-    <div className="prose dark:prose-invert max-w-none p-8">
+    <div className="bg-gray-800 prose prose-invert max-w-none p-8">
       <h1>{post.title}</h1>
       <p className="text-gray-400 text-sm">{new Date(post.createdAt).toLocaleString()}</p>
-      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
-        {post.content}
-      </ReactMarkdown>
+      {post.content ? (
+        <MarkdownViewer content={post.content} />
+      ) : (
+        <p>No content available.</p>
+      )}
     </div>
   );
 }

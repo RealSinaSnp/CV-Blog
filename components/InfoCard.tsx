@@ -32,9 +32,9 @@ export default function InfoCard({ title, color, items, showCheckmarks = false }
               )}
             </div>
             {!showCheckmarks && (
-              <div className={`mt-1 w-full h-2 ${bgBar} rounded-full`}>
+              <div className={`mt-1 w-full h-2 ${bgBar} `}>
                 <div
-                  className={`h-full ${progressBar} rounded-full transition`}
+                  className={`h-full ${progressBar} rounded-r-full transition`}
                   style={{ width: `${item.level}%` }}
                 ></div>
               </div>
