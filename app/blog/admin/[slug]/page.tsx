@@ -15,7 +15,9 @@ export default async function AdminEditPage({ params }: Props) {
   }
 
   await connectToDB();
-  const post = await Post.findOne({ slug: params.slug });
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  const post = await Post.findOne({ slug });
 
   if (!post) {
     return <div className="p-4 text-red-500">Post not found</div>;
