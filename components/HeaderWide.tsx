@@ -31,7 +31,7 @@ export default function HeaderMobile({ isDark }: HeaderProps) {
   return (
     <>
     <header className={`h-screen w-full flex flex-col justify-center items-center text-center gap-6 bg-animated-gradient px-6 ${ isDark ? "bg-animated-gradient-dark" : ""}`}>
-      <img src="/img/profile.jpg" alt="Profile" className={`w-32 h-32 md:w-40 md:h-40 rounded-full border-4 ${ isDark ? "border-white" : "border-black" } transition`} />
+      <img src="/img/profile.jpg" alt="Profile" className={`w-32 h-32 md:w-40 md:h-40 rounded-full border-3 ${ isDark ? "border-white" : "border-black" } transition`} />
       <h1 className="text-4xl md:text-5xl font-bold">Sina Sasanpour</h1>
       <p className="text-lg">Istanbul | Junior Developer</p>
 

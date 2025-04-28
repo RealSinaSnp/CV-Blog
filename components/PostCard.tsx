@@ -62,7 +62,7 @@ export default function PostCard({ post }: { post: Post }) {
       {/* Image section */}
       <div className="flex-1 xl:max-w-[500px] order-1 md:order-2">
         <div className="w-full h-64  overflow-hidden bg-[#0c0c0c]">
-          <a href={`/blog/${post.slug}`} className="relative block group" target="_blank" rel="noopener noreferrer">
+          <a href={`/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
             <img src={imageSrc} onError={() => setImgError(true)} alt={post.title}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
           </a>
