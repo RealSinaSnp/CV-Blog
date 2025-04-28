@@ -14,7 +14,9 @@ type Props = {
 
 
 export default async function PostPage({ params }: Props) {
-  const { slug } = params;
+  // Await the params prop
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
   await connectToDB();
   const post = await Post.findOne({ slug });
   const session = await getServerSession(authOptions);
