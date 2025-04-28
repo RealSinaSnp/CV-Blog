@@ -18,7 +18,8 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-    <div className="bg-gray-800 prose prose-invert max-w-none p-8">
+    <main className="px-6 md:px-20 py-10 bg-[#222] min-h-screen">
+    <div className="prose prose-invert max-w-none p-8">
       <h1>{post.title}</h1>
       <p className="text-gray-400 text-sm">{new Date(post.createdAt).toLocaleString()}</p>
       {post.content ? (
@@ -27,5 +28,6 @@ export default async function PostPage({ params }: Props) {
         <p>No content available.</p>
       )}
     </div>
+    </main>
   );
 }

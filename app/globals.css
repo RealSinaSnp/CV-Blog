@@ -60,6 +60,7 @@ details summary {
   background-color: #2c2c2c;
   border-radius: 0.5rem;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 details[open] summary {
@@ -72,4 +73,6 @@ details {
   border-radius: 0.5rem;
   margin-top: 1rem;
   background-color: #1a1a1a;
+  
 }
+
