@@ -44,16 +44,30 @@ body {
   animation: gradient 5s ease infinite;
 }
 
-/* TailwindCSS custom styling for inline code */
+
+
+/* --- [slug] markdown design --- */
+
+/* inline code */
 .prose code {
-  background-color: #090909; /* dark blackish background */
-  color: #00ff40; /* bright color for code */
+  background-color: #090909;
+  color: #00ff40;
   padding: 0.18rem 0.3rem;
   border-radius: 0.17rem;
   font-size: 0.9em;
   font-family: monospace;
 }
 
+/* links design */
+.prose a {
+  color: #3b82f6; 
+  text-decoration: underline;
+}
+.prose a:hover {
+  color: #60a5fa;
+}
+
+/* dropdown design */
 details summary {
   cursor: pointer;
   padding: 0.5rem;
@@ -62,17 +76,6 @@ details summary {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
 details[open] summary {
   background-color: #444444;
 }
-
-details {
-  padding: 0.5rem;
-  border: 1px solid #333;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-  background-color: #1a1a1a;
-  
-}
-

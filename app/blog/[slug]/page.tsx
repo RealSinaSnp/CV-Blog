@@ -27,8 +27,8 @@ export default async function PostPage({ params }: Props) {
   return (
     <main className="px-6 md:px-20 py-10 bg-[#222] min-h-screen">
       <div className="prose prose-invert max-w-none p-8">
-        <h1>{post.title}</h1>
-        <p className="text-gray-400 text-sm">{new Date(post.createdAt).toLocaleString()}</p>
+        <h1 className="text-4xl md:text-4xl font-bold">{post.title}</h1>
+        <p className="text-gray-400 text-sm mb-10">{new Date(post.createdAt).toLocaleString()}</p>
         <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeHighlight]}>
           {post.content}
         </ReactMarkdown>
