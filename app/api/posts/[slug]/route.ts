@@ -10,11 +10,10 @@ export async function DELETE(req: Request, { params }: { params: { slug: string 
   return NextResponse.json({ message: "Deleted" });
 }
 
-export async function POST(req: Request, context: { params: { slug: string } }) {
+export async function POST(req: Request, { params }: { params: { slug: string } }) {
   const formData = await req.formData();
   const title = formData.get('title') as string;
   const content = formData.get('content') as string;
-  const { params } = context; // Access params from the context
 
   await connectToDB();
   await Post.updateOne({ slug: params.slug }, { title, content });
