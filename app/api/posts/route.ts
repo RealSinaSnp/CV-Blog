@@ -1,3 +1,5 @@
+// @/app/api/posts/route.ts
+
 import { connectToDB } from "@/lib/mongodb";
 import Post from "@/models/post.model";
 import { NextResponse } from "next/server";
