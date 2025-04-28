@@ -53,7 +53,7 @@ export default function HeaderMobile({ isDark }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-4 mt-4">
-        <a href="/docs/CV_EN_dark.pdf" download className={`px-5 py-2 text-white font-semibold rounded-full bg-black/50 hover:bg-black ${isDark ? "bg-teal-500 hover:bg-teal-400" : "bg-[#17313c] hover:bg-black"} transition"`}>
+        <a href="/docs/CV_EN_dark.pdf" download className={`px-5 py-2 font-semibold rounded-full bg-black/50 hover:bg-black ${isDark ? "text-black bg-teal-500 hover:bg-teal-400" : "text-white bg-[#17313c] hover:bg-black"} transition"`}>
           Download CV (PDF)
         </a>
         <button onClick={toggleDark} className="text-white">
