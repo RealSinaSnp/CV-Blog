@@ -5,7 +5,8 @@ import Post from "@/models/post.model";
 import MarkdownViewer from "./MarkdownViewer";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
+
 };
 
 export default async function PostPage({ params }: Props) {
